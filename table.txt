@@ -1,0 +1,1 @@
+create table Customer (id int primary key auto_increment, name varchar(20), email varchar(20),role varchar(20),regdate date,reg_amt double) auto_increment=100;
