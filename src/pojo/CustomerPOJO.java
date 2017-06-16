@@ -49,18 +49,8 @@ public class CustomerPOJO {
 	public void setCustRegAmt(double custRegAmt) {
 		this.custRegAmt = custRegAmt;
 	}
-	public CustomerPOJO(int custID, String custName, String custEmail, String custPass, String custRole,
-			Date custRegDate, double custRegAmt) {
-		this.custID = custID;
-		this.custName = custName;
-		this.custEmail = custEmail;
-		this.custPass = custPass;
-		this.custRole = custRole;
-		this.custRegDate = custRegDate;
-		this.custRegAmt = custRegAmt;
-	}
-	
-	public CustomerPOJO(String custName, String custEmail, String custPass, String custRole,Date custRegDate2, double custRegAmt) {
+
+	public CustomerPOJO(String custName, String custEmail, String custPass, String custRole,Date custRegDate, double custRegAmt) {
 		this.custName = custName;
 		this.custEmail = custEmail;
 		this.custPass = custPass;
@@ -77,6 +67,7 @@ public class CustomerPOJO {
 		this.custEmail = custEmail;
 		this.custRole = custRole;
 		this.custRegDate = custRegDate;
+		System.out.println("from pojo constr: "+custRegDate);
 		this.custRegAmt = custRegAmt;
 	}
 	

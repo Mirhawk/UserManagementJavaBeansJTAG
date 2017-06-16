@@ -36,7 +36,6 @@ public class CustomerDAO {
 		preparedStatement.setString(4, customer.getCustRole());
 		preparedStatement.setDate(5,customer.getCustRegDate());
 		preparedStatement.setDouble(6, customer.getCustRegAmt());
-		
 		int rowsAffectedCount = preparedStatement.executeUpdate();
 		
 		if(rowsAffectedCount == 1)

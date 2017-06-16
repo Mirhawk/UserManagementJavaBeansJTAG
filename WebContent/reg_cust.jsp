@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <jsp:setProperty property="*" name="custBean"/>
+
 <body>
 	<jsp:forward page="${sessionScope.custBean.addUser()}.jsp"/>
 </body>

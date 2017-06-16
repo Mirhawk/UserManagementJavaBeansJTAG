@@ -9,6 +9,8 @@
 
 <jsp:useBean id="custBean" class="javabean.CustomerBean" scope="session"/>
 
+
+
 <body>
 
 <div align="right">
