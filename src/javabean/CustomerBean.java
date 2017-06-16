@@ -1,11 +1,21 @@
 package javabean;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.SQLException;
+
+import com.sun.xml.internal.bind.v2.runtime.Name;
+
+import dao.CustomerDAO;
+import pojo.CustomerPOJO;
 
 public class CustomerBean {
 	String custName , custEmail , custPass, custRole ;
 	Date custRegDate;
 	double custRegAmt;
+	CustomerPOJO customer;
+	CustomerDAO customerDAO;
+	
+	
 	public String getCustName() {
 		return custName;
 	}
@@ -42,6 +52,16 @@ public class CustomerBean {
 	public void setCustRegAmt(double custRegAmt) {
 		this.custRegAmt = custRegAmt;
 	}
+	
+	public CustomerBean()
+	{}
+	public void addUser() throws ClassNotFoundException, SQLException 
+	{
+		customerDAO = new CustomerDAO();
+		CustomerPOJO customer = customerDAO.addUser(new CustomerPOJO(custName,custEmail,custPass,custRole,custRegDate,custRegAmt));
+		
+	}
+	
 	public CustomerBean(String custName, String custEmail, String custPass, String custRole,
 			Date custRegDate, double custRegAmt) {
 		this.custName = custName;

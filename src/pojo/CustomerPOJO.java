@@ -1,5 +1,5 @@
 package pojo;
-import java.util.Date;
+import java.sql.Date;
 
 public class CustomerPOJO {
 	int custID;
@@ -51,11 +51,30 @@ public class CustomerPOJO {
 	}
 	public CustomerPOJO(int custID, String custName, String custEmail, String custPass, String custRole,
 			Date custRegDate, double custRegAmt) {
-		super();
 		this.custID = custID;
 		this.custName = custName;
 		this.custEmail = custEmail;
 		this.custPass = custPass;
+		this.custRole = custRole;
+		this.custRegDate = custRegDate;
+		this.custRegAmt = custRegAmt;
+	}
+	
+	public CustomerPOJO(String custName, String custEmail, String custPass, String custRole,Date custRegDate2, double custRegAmt) {
+		this.custName = custName;
+		this.custEmail = custEmail;
+		this.custPass = custPass;
+		this.custRole = custRole;
+		this.custRegDate = custRegDate;
+		this.custRegAmt = custRegAmt;
+	}
+	
+	
+	public CustomerPOJO(int custID, String custName, String custEmail, String custRole,
+			Date custRegDate, double custRegAmt) {
+		this.custID = custID;
+		this.custName = custName;
+		this.custEmail = custEmail;
 		this.custRole = custRole;
 		this.custRegDate = custRegDate;
 		this.custRegAmt = custRegAmt;
