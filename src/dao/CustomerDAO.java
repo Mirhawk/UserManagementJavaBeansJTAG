@@ -3,7 +3,9 @@ package dao;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import pojo.CustomerPOJO;
 
@@ -38,9 +40,13 @@ public class CustomerDAO {
 		int rowsAffectedCount = preparedStatement.executeUpdate();
 		
 		if(rowsAffectedCount == 1)
-			
-		
-		
+		{
+			String getIDsqlQuery = "SELECT @@IDENTITY";
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery(getIDsqlQuery);
+			if(resultSet.next())
+				return new CustomerPOJO(resultSet.getInt(1), customer.getCustName(), customer.getCustEmail(), customer.getCustRole(), customer.getCustRegDate(), customer.getCustRegAmt());
+		}		
 		return null;
 	}
 }

@@ -14,8 +14,27 @@ public class CustomerBean {
 	double custRegAmt;
 	CustomerPOJO customer;
 	CustomerDAO customerDAO;
+	String last_action;
 	
 	
+	public CustomerPOJO getCustomer() {
+		return customer;
+	}
+	public void setCustomer(CustomerPOJO customer) {
+		this.customer = customer;
+	}
+	public CustomerDAO getCustomerDAO() {
+		return customerDAO;
+	}
+	public void setCustomerDAO(CustomerDAO customerDAO) {
+		this.customerDAO = customerDAO;
+	}
+	public String getLast_action() {
+		return last_action;
+	}
+	public void setLast_action(String last_action) {
+		this.last_action = last_action;
+	}
 	public String getCustName() {
 		return custName;
 	}
@@ -43,8 +62,8 @@ public class CustomerBean {
 	public Date getCustRegDate() {
 		return custRegDate;
 	}
-	public void setCustRegDate(Date custRegDate) {
-		this.custRegDate = custRegDate;
+	public void setCustRegDate(String custRegDate) {
+		this.custRegDate = Date.valueOf(custRegDate);
 	}
 	public double getCustRegAmt() {
 		return custRegAmt;
@@ -53,23 +72,33 @@ public class CustomerBean {
 		this.custRegAmt = custRegAmt;
 	}
 	
-	public CustomerBean()
-	{}
-	public void addUser() throws ClassNotFoundException, SQLException 
+	public CustomerBean() throws ClassNotFoundException, SQLException
 	{
 		customerDAO = new CustomerDAO();
-		CustomerPOJO customer = customerDAO.addUser(new CustomerPOJO(custName,custEmail,custPass,custRole,custRegDate,custRegAmt));
+		System.out.println("in bean constructor");
+	}
+	
+	public String addUser() throws ClassNotFoundException, SQLException 
+	{
+		customer = customerDAO.addUser(new CustomerPOJO(custName,custEmail,custPass,custRole,custRegDate,custRegAmt));
+		if(customer == null)
+		{
+			last_action = "Problem while logging in!";
+			return "Register";
+		}
+		last_action = "Logged in successfully!";
+		return "Success";
 		
 	}
 	
-	public CustomerBean(String custName, String custEmail, String custPass, String custRole,
-			Date custRegDate, double custRegAmt) {
-		this.custName = custName;
-		this.custEmail = custEmail;
-		this.custPass = custPass;
-		this.custRole = custRole;
-		this.custRegDate = custRegDate;
-		this.custRegAmt = custRegAmt;
-	}
+//	public CustomerBean(String custName, String custEmail, String custPass, String custRole,
+//			Date custRegDate, double custRegAmt) {
+//		this.custName = custName;
+//		this.custEmail = custEmail;
+//		this.custPass = custPass;
+//		this.custRole = custRole;
+//		this.custRegDate = custRegDate;
+//		this.custRegAmt = custRegAmt;
+//	}
 	
 }

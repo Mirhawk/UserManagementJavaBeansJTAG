@@ -6,9 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
+<jsp:useBean id="custBean" class="javabean.CustomerBean" scope="session"/>
+
 <body>
 
-<form class="form-horizontal" action='' method="POST">
+<div align="right">
+	${sessionScope.custBean.last_action}
+</div>
+
+<form class="form-horizontal" action='reg_cust.jsp' method="POST">
   <fieldset>
     <div id="legend">
       <legend class="">Register</legend>
